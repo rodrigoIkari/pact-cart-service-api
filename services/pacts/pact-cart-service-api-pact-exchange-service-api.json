@@ -1,0 +1,93 @@
+{
+  "consumer": {
+    "name": "pact-cart-service-api"
+  },
+  "provider": {
+    "name": "pact-exchange-service-api"
+  },
+  "interactions": [
+    {
+      "description": "A Request to convert USD to BRL",
+      "providerState": "USD to BRL exchange rate is updated to 5.34",
+      "request": {
+        "method": "POST",
+        "path": "/exchange/convert",
+        "body": {
+          "value": 15,
+          "source_currency_code": "USD",
+          "destination_currency_code": "BRL"
+        },
+        "matchingRules": {
+          "$.path": {
+            "match": "regex",
+            "regex": "\\/exchange\\/convert"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "value": 15,
+          "converted_value": 80.1,
+          "source_currency_code": "USD",
+          "destination_currency_code": "BRL",
+          "exchange_rate": 5.34
+        },
+        "matchingRules": {
+          "$.headers.Content-Type": {
+            "match": "regex",
+            "regex": "application\\/json"
+          },
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "A Request to convert USD to XXX",
+      "providerState": "USD to XXX exchange rate is not found",
+      "request": {
+        "method": "POST",
+        "path": "/exchange/convert",
+        "body": {
+          "value": 15,
+          "source_currency_code": "USD",
+          "destination_currency_code": "XXX"
+        },
+        "matchingRules": {
+          "$.path": {
+            "match": "regex",
+            "regex": "\\/exchange\\/convert"
+          }
+        }
+      },
+      "response": {
+        "status": 422,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "Message": "Currency Tax Rate not found for conversion"
+        },
+        "matchingRules": {
+          "$.headers.Content-Type": {
+            "match": "regex",
+            "regex": "application\\/json"
+          },
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

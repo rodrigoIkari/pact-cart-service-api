@@ -1,0 +1,191 @@
+I, [2024-05-09T20:15:12.256644 #119041]  INFO -- : Registered expected interaction POST /exchange/convert
+D, [2024-05-09T20:15:12.261595 #119041] DEBUG -- : {
+  "description": "A Request to convert USD to BRL",
+  "providerState": "USD to BRL exchange rate is updated to 5.34",
+  "request": {
+    "method": "POST",
+    "path": {
+      "json_class": "Pact::Term",
+      "data": {
+        "generate": "/exchange/convert",
+        "matcher": {
+          "json_class": "Regexp",
+          "o": 0,
+          "s": "/exchange/convert"
+        }
+      }
+    },
+    "body": {
+      "value": 15,
+      "source_currency_code": "USD",
+      "destination_currency_code": "BRL"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "application/json; charset=utf-8",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "application\\/json"
+          }
+        }
+      }
+    },
+    "body": {
+      "json_class": "Pact::SomethingLike",
+      "contents": {
+        "value": 15,
+        "converted_value": 80.1,
+        "source_currency_code": "USD",
+        "destination_currency_code": "BRL",
+        "exchange_rate": 5.34
+      }
+    }
+  },
+  "metadata": null
+}
+I, [2024-05-09T20:15:12.262959 #119041]  INFO -- : Received request POST /exchange/convert
+D, [2024-05-09T20:15:12.263060 #119041] DEBUG -- : {
+  "path": "/exchange/convert",
+  "query": "",
+  "method": "post",
+  "body": {
+    "value": 15,
+    "source_currency_code": "USD",
+    "destination_currency_code": "BRL"
+  },
+  "headers": {
+    "Content-Length": "75",
+    "Content-Type": "application/json",
+    "Host": "localhost:38533",
+    "User-Agent": "Go-http-client/1.1",
+    "Accept-Encoding": "gzip",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2024-05-09T20:15:12.264150 #119041]  INFO -- : Found matching response for POST /exchange/convert
+D, [2024-05-09T20:15:12.264229 #119041] DEBUG -- : {
+  "status": 200,
+  "headers": {
+    "Content-Type": {
+      "json_class": "Pact::Term",
+      "data": {
+        "generate": "application/json; charset=utf-8",
+        "matcher": {
+          "json_class": "Regexp",
+          "o": 0,
+          "s": "application\\/json"
+        }
+      }
+    }
+  },
+  "body": {
+    "json_class": "Pact::SomethingLike",
+    "contents": {
+      "value": 15,
+      "converted_value": 80.1,
+      "source_currency_code": "USD",
+      "destination_currency_code": "BRL",
+      "exchange_rate": 5.34
+    }
+  }
+}
+I, [2024-05-09T20:15:12.311945 #119041]  INFO -- : Verifying - interactions matched
+I, [2024-05-09T20:15:12.361333 #119041]  INFO -- : Cleared interactions
+I, [2024-05-09T20:15:12.412321 #119041]  INFO -- : Registered expected interaction POST /exchange/convert
+D, [2024-05-09T20:15:12.412578 #119041] DEBUG -- : {
+  "description": "A Request to convert USD to XXX",
+  "providerState": "USD to XXX exchange rate is not found",
+  "request": {
+    "method": "POST",
+    "path": {
+      "json_class": "Pact::Term",
+      "data": {
+        "generate": "/exchange/convert",
+        "matcher": {
+          "json_class": "Regexp",
+          "o": 0,
+          "s": "/exchange/convert"
+        }
+      }
+    },
+    "body": {
+      "value": 15,
+      "source_currency_code": "USD",
+      "destination_currency_code": "XXX"
+    }
+  },
+  "response": {
+    "status": 422,
+    "headers": {
+      "Content-Type": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "application/json; charset=utf-8",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "application\\/json"
+          }
+        }
+      }
+    },
+    "body": {
+      "json_class": "Pact::SomethingLike",
+      "contents": {
+        "Message": "Currency Tax Rate not found for conversion"
+      }
+    }
+  },
+  "metadata": null
+}
+I, [2024-05-09T20:15:12.479199 #119041]  INFO -- : Received request POST /exchange/convert
+D, [2024-05-09T20:15:12.479396 #119041] DEBUG -- : {
+  "path": "/exchange/convert",
+  "query": "",
+  "method": "post",
+  "body": {
+    "value": 15,
+    "source_currency_code": "USD",
+    "destination_currency_code": "XXX"
+  },
+  "headers": {
+    "Content-Length": "75",
+    "Content-Type": "application/json",
+    "Host": "localhost:38533",
+    "User-Agent": "Go-http-client/1.1",
+    "Accept-Encoding": "gzip",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2024-05-09T20:15:12.479723 #119041]  INFO -- : Found matching response for POST /exchange/convert
+D, [2024-05-09T20:15:12.479860 #119041] DEBUG -- : {
+  "status": 422,
+  "headers": {
+    "Content-Type": {
+      "json_class": "Pact::Term",
+      "data": {
+        "generate": "application/json; charset=utf-8",
+        "matcher": {
+          "json_class": "Regexp",
+          "o": 0,
+          "s": "application\\/json"
+        }
+      }
+    }
+  },
+  "body": {
+    "json_class": "Pact::SomethingLike",
+    "contents": {
+      "Message": "Currency Tax Rate not found for conversion"
+    }
+  }
+}
+I, [2024-05-09T20:15:12.531123 #119041]  INFO -- : Verifying - interactions matched
+I, [2024-05-09T20:15:12.580811 #119041]  INFO -- : Cleared interactions
+I, [2024-05-09T20:15:12.631316 #119041]  INFO -- : Writing pact for pact-exchange-service-api to /home/rodrigo/repos/github.com/rodrigoikari/pact-cart-service-api/services/pacts/pact-cart-service-api-pact-exchange-service-api.json
