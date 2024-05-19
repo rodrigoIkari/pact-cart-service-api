@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/pact-foundation/pact-go/dsl"
-	"github.com/rodrigoikari/pact-cart-service-api/models"
 	"github.com/rodrigoikari/pact-cart-service-api/services"
+	"github.com/rodrigoikari/pact-cart-service-api/services/models"
 )
 
 func TestMain(m *testing.M) {

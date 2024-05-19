@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/rodrigoikari/pact-cart-service-api/models"
+	"github.com/rodrigoikari/pact-cart-service-api/controllers/models"
 	"github.com/rodrigoikari/pact-cart-service-api/services"
 )
 

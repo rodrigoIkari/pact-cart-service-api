@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/rodrigoikari/pact-cart-service-api/models"
+	"github.com/rodrigoikari/pact-cart-service-api/services/models"
 )
 
 type CurrencyServiceImpl struct {

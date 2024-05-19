@@ -2,7 +2,7 @@ package services
 
 import (
 	"github.com/go-playground/validator/v10"
-	"github.com/rodrigoikari/pact-cart-service-api/models"
+	"github.com/rodrigoikari/pact-cart-service-api/controllers/models"
 )
 
 func Validate(c any) []*models.ErrorResponse {
